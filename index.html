@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gestión de Horarios</title>
+</head>
+<body>
+
+    <header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>STREET UNIVERSITY</h1>
+			</div>
+			<nav class="menu">
+				<a href="#">Home</a>
+				<a href="#">About Us</a>
+				<a href="#">Blog</a>
+				<a href="#">Contact</a>
+			</nav>
+		</div>
+	</header>
+	<div class="capa"></div>
+    <!--	--------------->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <ul class="nav">
+                    <li><a href="">Students</a>
+                        <ul>
+                            <li><a href="#ModalAddStudent">New Student</a></li>
+                            <li><a href="#ModalModifyStudent">Modify Student</a></li>
+                            <li><a href="#ModalRemoveStudent">Delete Student</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Courses</a>
+                        <ul>
+                            <li><a href="#ModalAddCourse">New Course</a></li>
+                            <li><a href="#ModalModifyCourse">Modify Course</a></li>
+                            <li><a href="#ModalRemoveCourse">Delete Course</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ModalSchedule">Schedule</a></li>
+                </ul>			
+            </ul>
+            <label for="btn-menu">✖️</label>
+        </div>
+    </div>
+        
+    <!--  Modal Añadir Estudiante-->
+    <div id="ModalAddStudent" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>NEW STUDENT</h1>
+                    <label>Nombre: </label>
+                    <input type="text" id="input-1">
+                    <br>
+                    <label>Carrera: </label>
+                    <input type="text" id="input-2">
+            </div>
+            <button id="AddStudent">Add Student</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!--  Modal Modificar Estudiante -->
+    <div id="ModalModifyStudent" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>MODIFY STUDENT</h1>
+                    <label>Codigo: </label>
+                    <input type="text" id="input-1">
+            </div>
+            <button id="ModifyStudent">Add Student</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!--  Modal Eliminar Estudiante -->
+    <div id="ModalRemoveStudent" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>DELETE STUDENT</h1>
+                    <label>Codigo: </label>
+                    <input type="text" id="input-1">
+            </div>
+            <button id="DeleteStudent">Delete Student</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!--  Modal Añadir Curso-->
+    <div id="ModalAddCourse" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>NEW COURSE</h1>
+                    <label>Nombre: </label>
+                    <input type="text" id="input-1">
+                    <br>
+                    <label>Carrera: </label>
+                    <input type="text" id="input-2">
+            </div>
+            <button id="AddCourse">Add Course</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!--  Modal Modificar Estudiante -->
+    <div id="ModalModifyCourse" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>MODIFY COURSET</h1>
+                    <label>Codigo: </label>
+                    <input type="text" id="input-1">
+            </div>
+            <button id="ModifyStudent">Add Course</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!--  Modal Eliminar Estudiante -->
+    <div id="ModalRemoveCourse" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+                    <h1>DELETE COURSE</h1>
+                    <label>Codigo: </label>
+                    <input type="text" id="input-1">
+            </div>
+            <button id="DeleteStudent">Delete Course</button>
+            <a href="#close" title="close">Cancel</a>
+        </div>
+    </div>
+
+    <!-- Ventana para hacer horarios -->
+    <div id="ModalSchedule" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <div id="login">
+
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="student.js"></script>
+<script src="main.js"></script>
+<script src="course"></script>
+</body>
+</html>
