@@ -28,16 +28,14 @@ const ShowCreC = document.getElementById('Credits');
 const TableStudents = document.getElementById('Table');
 
 
-let cont = 0;
 let Students = [];
-
+let cont = Students.length;
 
 btnAddStudent.addEventListener('click', function(){
     if(NameStudent.value == '' || ProgramStudent.value == ''){
         alert('Fill all the blank spaces');
     }else{
-        const student = new Student(cont, NameStudent.value, ProgramStudent.value);    
-        console.log(student.Code);
+        const student = new Student(cont.toString(), NameStudent.value, ProgramStudent.value);    
         Students.push(student);
         console.log(Students);
         cont++;
@@ -46,12 +44,13 @@ btnAddStudent.addEventListener('click', function(){
 });
 
 btnModifyStudent.addEventListener('click', function(){
+    const DivDatos = document.getElementById('DatesStd');
     if(CodeModify.value == ''){
         alert('Type a Student code');
     }else{
         Students.forEach(function(x){
             if(CodeModify.value == x.Code){
-                const DivDatos = document.getElementById('DatesStd');
+                DivDatos.innerHTML = '';
                 const LblName = document.createElement('label');
                 LblName.innerHTML = 'Name';
                 const InpName = document.createElement('input');
@@ -66,6 +65,8 @@ btnModifyStudent.addEventListener('click', function(){
                     x.modificar(InpName.value, InpCar.value);
                     alert('Estudiante Modificado');
                     console.log(x);
+                    Students[parseInt(x.Code)] = x;
+                    console.log(Students[parseInt(x.Code)]);
                 })
                 DivDatos.appendChild(LblName);
                 DivDatos.appendChild(InpName);
@@ -74,7 +75,8 @@ btnModifyStudent.addEventListener('click', function(){
                 DivDatos.appendChild(BtnMdf);
                 localStorage.setItem('Students', JSON.stringify(Students));
             }
-        })
+        });
+
     };
 });
 
@@ -93,39 +95,15 @@ btnDeleteStudent.addEventListener('click', function(){
 });
 
 
-/* new_course_button.addEventListener('click', () =>{
-    modal_añadir.style.display='block'
-    }) */
-
-/*oprimeme.addEventListener('click', () =>{
-    modal.style.display='flex'
-    })
-
-function close_modal1() {
-    modal.style.display='none'
-}
-
-
-
-
-update_button.addEventListener('click', () =>{
-    student.modificar(cont,input_1_m,input_2_m)
-    clean_inputs()
-    console.log(student);
-    })
-
-delete_buttonaddEventListener('click', () =>{
-
-    })*/
-
-
-
-
 window.addEventListener('load', function() {
-    Students = JSON.parse(localStorage.getItem('Students'));
+    const Load = JSON.parse(localStorage.getItem('Students'));
     console.log(Students);
-    if(Students != null){
-        
+    if(Load != null){
+        cont = Students.length;
+        Load.forEach(function(x){
+            const student = new Student(x.id, x.name, x.career)
+            Students.push(student)
+        })
     }else{
         Students = [];
     }
