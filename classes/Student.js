@@ -29,7 +29,14 @@ class Student{
     get Name() {
         return this.name
     }
-}
 
+    get Career() {
+        return this.career
+    }
+
+    get Code() {
+        return this.id
+    }
+}
 
 

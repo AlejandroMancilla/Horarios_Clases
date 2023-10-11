@@ -262,3 +262,70 @@
 }
 
 
+/* Estilos Ventana de Horarios */
+.CourseData {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
+    padding: 40px 40px;
+}
+
+.CourseData input {
+    font-family: 'Brygada 1918', serif;
+    color: #43382c;
+    background-color: rgb(233, 212, 187);
+    font-size: 12px;
+    padding: 2px 10px;
+    text-align: center;
+}
+
+.TableContainer {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow: hidden;
+    width: 450px;
+}
+
+table thead th{
+    background-color: #43382c89;
+    color: #FFFFFF;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Cinzel', serif;
+}
+
+table th,td {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #43382c;
+    font-size: 13px;
+    font-family: 'Brygada 1918', serif;
+}
+
+table tbody tr:hover {
+    font-weight: bold;
+    color: #43382c;
+    background-color: rgb(233, 212, 187);
+    font-size: 14px;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #43382c89;
+}
+
+table input {
+    font-family: 'Brygada 1918', serif;
+    color: #43382c;
+    background-color: rgb(233, 212, 187);
+    font-size: 12px;
+    padding: 5px 10px;
+    text-align: center;
+}

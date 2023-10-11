@@ -37,6 +37,13 @@
                             <li><a href="#ModalRemoveStudent">Delete Student</a></li>
                         </ul>
                     </li>
+                    <li><a href="">Subjects</a>
+                        <ul>
+                            <li><a href="#ModalAddCourse">New Subject</a></li>
+                            <li><a href="#ModalModifyCourse">Modify Subject</a></li>
+                            <li><a href="#ModalRemoveCourse">Delete Subject</a></li>
+                        </ul>
+                    </li>
                     <li><a href="">Courses</a>
                         <ul>
                             <li><a href="#ModalAddCourse">New Course</a></li>
@@ -58,10 +65,10 @@
             <div id="login">
                     <h1>NEW STUDENT</h1>
                     <label>Nombre: </label>
-                    <input type="text" id="input-1">
+                    <input type="text" id="NameStudent">
                     <br>
                     <label>Carrera: </label>
-                    <input type="text" id="input-2">
+                    <input type="text" id="ProgramStudent">
             </div>
             <button id="AddStudent">Add Student</button>
             <a href="#close" title="close">Cancel</a>
@@ -72,10 +79,11 @@
     <div id="ModalModifyStudent" class="modalmask">
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
-            <div id="login">
+            <div id="ModifyStd">
                     <h1>MODIFY STUDENT</h1>
                     <label>Codigo: </label>
-                    <input type="text" id="input-1">
+                    <input type="number" id="CodeModify">
+                    <div id="DatesStd"></div>
             </div>
             <button id="ModifyStudent">Add Student</button>
             <a href="#close" title="close">Cancel</a>
@@ -89,7 +97,7 @@
             <div id="login">
                     <h1>DELETE STUDENT</h1>
                     <label>Codigo: </label>
-                    <input type="text" id="input-1">
+                    <input type="number" id="CodeDelete">
             </div>
             <button id="DeleteStudent">Delete Student</button>
             <a href="#close" title="close">Cancel</a>
@@ -102,11 +110,17 @@
             <a href="#close" title="Close" class="close">X</a>
             <div id="login">
                     <h1>NEW COURSE</h1>
-                    <label>Nombre: </label>
-                    <input type="text" id="input-1">
+                    <label>Course Name: </label>
+                    <input type="text" id="CourseName">
                     <br>
-                    <label>Carrera: </label>
-                    <input type="text" id="input-2">
+                    <label>Especiality: </label>
+                    <input type="text" id="CourseEsp">
+                    <br>
+                    <label>Course duration: </label>
+                    <input type="text" id="CourseDur">
+                    <br>
+                    <label>Credits: </label>
+                    <input type="text" id="CourseCre">
             </div>
             <button id="AddCourse">Add Course</button>
             <a href="#close" title="close">Cancel</a>
@@ -118,9 +132,12 @@
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
             <div id="login">
-                    <h1>MODIFY COURSET</h1>
-                    <label>Codigo: </label>
-                    <input type="text" id="input-1">
+                    <h1>MODIFY COURSE</h1>
+                    <label>Select Course to Modify: </label>
+                    <select name="" id="CourseModify">
+                        <option value="0" selected>Choose One...</option>
+                    </select>
+                    
             </div>
             <button id="ModifyStudent">Add Course</button>
             <a href="#close" title="close">Cancel</a>
@@ -133,8 +150,10 @@
             <a href="#close" title="Close" class="close">X</a>
             <div id="login">
                     <h1>DELETE COURSE</h1>
-                    <label>Codigo: </label>
-                    <input type="text" id="input-1">
+                    <label>Select Course to Delete: </label>
+                    <select name="" id="CourseDelete">
+                        <option value="0" selected>Choose One...</option>
+                    </select>
             </div>
             <button id="DeleteStudent">Delete Course</button>
             <a href="#close" title="close">Cancel</a>
@@ -145,16 +164,32 @@
     <div id="ModalSchedule" class="modalmask">
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
-            <div id="login">
-
+            <div id="login" class="CourseData">
+                <label for="">Choose Course to review</label>
+                <select name="Courses" id="Courses">
+                    <option value="0" selected>Choose One...</option>
+                </select>
+                <p>Course Name: <input type="text" id="Course" placeholder="--" disabled></p>
+                <p>Especiality: <input type="text" id="Especiality" placeholder="--" disabled></p>
+                <p>Course duration: <input type="text" id="Duration" placeholder="--" disabled></p>
+                <p>Academic credits: <input type="text" id="Credits" placeholder="--" disabled></p>
+                <button id="Search"> SEE REGISTERED</button>
+            </div>
+            <div id="TableStudents" class="TableContainer">
+                <table id="Table"></table>
+                <tr>
+                    <th>Student's Name</th>
+                    <th colspan="6">Day - Hour</th>
+                </tr>
             </div>
         </div>
     </div>
 
 
 
-<script src="student.js"></script>
-<script src="main.js"></script>
-<script src="course"></script>
+<script src="classes/Student.js"></script>
+<script src="classes/Course.js"></script>
+<script src="classes/Main.js"></script>
+
 </body>
 </html>
