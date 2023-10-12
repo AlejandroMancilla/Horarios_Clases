@@ -6,11 +6,18 @@ class Subject{
     credits;
 
     constructor(code,name,especiality,time,credits){
-        this.code = code;
-        this.name = name;
-        this.especiality = especiality;
-        this.time = time;
-        this.credits = credits;
+        this.code = code
+        this.name = name
+        this.especiality = especiality
+        this.time = time
+        this.credits = credits
+    }
+
+    Modify(name,especiality,time,credits){
+        this.name = name
+        this.especiality = especiality
+        this.time = time
+        this.credits = credits
     }
 
     get Code() {

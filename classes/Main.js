@@ -72,13 +72,14 @@ btnModifyStudent.addEventListener('click', function(){
                     console.log(x);
                     Students[parseInt(x.Code)] = x;
                     console.log(Students[parseInt(x.Code)]);
+                    localStorage.setItem('Students', JSON.stringify(Students));
+
                 })
                 DivDatos.appendChild(LblName);
                 DivDatos.appendChild(InpName);
                 DivDatos.appendChild(LblEsp);
                 DivDatos.appendChild(InpCar);
                 DivDatos.appendChild(BtnMdf);
-                localStorage.setItem('Students', JSON.stringify(Students));
             }
         });
 
@@ -105,39 +106,61 @@ btnAddSubject.addEventListener('click', function(){
         alert('Fill all the blank spaces');
     }else{
         alert('Add Subject')
-        const subject = new Subject(ContSubject.toString, SubjectName.value.toUpperCase(), SubjectEsp.value.toUpperCase(), SubjectDur.value.toUpperCase(), SubjectCre.value.toUpperCase());
+        const subject = new Subject(ContSubject.toString(), SubjectName.value.toUpperCase(), SubjectEsp.value.toUpperCase(), SubjectDur.value.toUpperCase(), SubjectCre.value.toUpperCase());
+        console.log(subject)
         Subjects.push(subject);
         cont++;
         localStorage.setItem('Subjects', JSON.stringify(Subjects));
     }
 })
 
-btnModifySubject.addEventListener('click', function(x) {
-    DivDatosSub.innerHTML = '';
-    const LblName = document.createElement('label');
-    LblName.innerHTML = 'Name';
-    const InpName = document.createElement('input');
-    InpName.value = x.Name;
-    const LblEsp = document.createElement('label');
-    LblEsp.innerHTML = 'Career';
-    const InpCar = document.createElement('input');
-    InpCar.value = x.Career;
-    const BtnMdf = document.createElement('button');
-    BtnMdf.textContent = 'Modify';
-    BtnMdf.addEventListener('click', function(){
-        x.modificar(InpName.value, InpCar.value);
-        alert('Estudiante Modificado');
-        console.log(x);
-        Students[parseInt(x.Code)] = x;
-        console.log(Students[parseInt(x.Code)]);
-    })
-    DivDatos.appendChild(LblName);
-    DivDatos.appendChild(InpName);
-    DivDatos.appendChild(LblEsp);
-    DivDatos.appendChild(InpCar);
-    DivDatos.appendChild(BtnMdf);
-    localStorage.setItem('Students', JSON.stringify(Students));
-})
+btnModifySubject.addEventListener('click', function() {
+    const DivDatosSub = document.getElementById('DatesSub');
+    if(CodeSubjectMd.value == '' || CodeSubjectMd.value == '0'){
+        alert('Choose a Subject');
+    }else{
+        Subjects.forEach(function(x){
+            console.log(CodeSubjectMd.value);
+            if(CodeSubjectMd.value == x.Code){
+                DivDatosSub.innerHTML = '';
+                const LblName = document.createElement('label');
+                LblName.innerHTML = 'Name';
+                const InpName = document.createElement('input');
+                InpName.value = x.Name;
+                const LblEsp = document.createElement('label');
+                LblEsp.innerHTML = 'Especiality';
+                const InpEsp = document.createElement('input');
+                InpEsp.value = x.Especiality;
+                const LblTime = document.createElement('label');
+                LblTime.innerHTML = 'Time';
+                const InpTime = document.createElement('input');
+                InpTime.value = x.Time;
+                const LblCre = document.createElement('label');
+                LblCre.innerHTML = 'Credits';
+                const InpCre = document.createElement('input');
+                InpCre.value = x.Credits;
+                const BtnMdf = document.createElement('button');
+                BtnMdf.textContent = 'Modify';
+                BtnMdf.addEventListener('click', function(){
+                    x.Modify(InpName.value, InpEsp.value, InpTime.value, InpCre.value);
+                    alert('Subject Modificado');
+                    Subjects[parseInt(x.Code)] = x;
+                    localStorage.setItem('Subjects', JSON.stringify(Subjects));
+
+                })
+                DivDatosSub.appendChild(LblName);
+                DivDatosSub.appendChild(InpName);
+                DivDatosSub.appendChild(LblEsp);
+                DivDatosSub.appendChild(InpEsp);
+                DivDatosSub.appendChild(LblTime);
+                DivDatosSub.appendChild(InpTime);
+                DivDatosSub.appendChild(LblCre);
+                DivDatosSub.appendChild(InpCre);
+                DivDatosSub.appendChild(BtnMdf);
+            }
+        })
+    }
+});
 
 //FUNCIONES DE CURSOS - Hacer esto con la misma metodologia de Students.
 btnAddCourse.addEventListener('click', function(){
@@ -161,7 +184,7 @@ btnModifyCourse.addEventListener('click', function(){
 
 function UpdatesSubjects() {
     Subjects.forEach(function(x) {
-        CodeSubjectMd.innerHTML += `<option value="${x.Name}" selected>${x.Name}</option>`;
+        CodeSubjectMd.innerHTML += `<option value="${x.Code}" selected>${x.Name}</option>`;
     })
     
 }
@@ -182,7 +205,7 @@ window.addEventListener('load', function() {
     if(LoadSub != null){
         ContSubject = Students.length;
         LoadSub.forEach(function(x){
-            const subject = new Subject(x.Code, x.name, x.especiality, x.time, x.credits)
+            const subject = new Subject(x.code, x.name, x.especiality, x.time, x.credits)
             Subjects.push(subject)
         })
         UpdatesSubjects();

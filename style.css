@@ -36,6 +36,11 @@
     top: 0;left: 0;
 }
 
+.Column {
+    display: flex;
+    flex-direction: column;
+}
+
 /*Estilos para el encabezado*/
 .header{
     width: 100%;
