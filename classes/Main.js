@@ -139,6 +139,26 @@ btnModifySubject.addEventListener('click', function(x) {
     localStorage.setItem('Students', JSON.stringify(Students));
 })
 
+//FUNCIONES DE CURSOS - Hacer esto con la misma metodologia de Students.
+btnAddCourse.addEventListener('click', function(){
+
+})
+
+btnDeleteCourse.addEventListener('click', function(){
+
+})
+
+btnModifyCourse.addEventListener('click', function(){
+
+})
+
+
+
+
+
+
+
+
 function UpdatesSubjects() {
     Subjects.forEach(function(x) {
         CodeSubjectMd.innerHTML += `<option value="${x.Name}" selected>${x.Name}</option>`;
